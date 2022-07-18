@@ -1,21 +1,32 @@
 <script>
-  import adarsh from "./assets/adarsh.jpg";
-  import Counter from "./lib/Counter.svelte";
+
   import Navbar from "./lib/Navbar.svelte";
-  import Knowledge from "./lib/Knowledge.svelte";
-  import Main from "./lib/Main.svelte";
-  import Projects from "./lib/Projects.svelte";
-  import Blog from './lib/Blog.svelte';
+  
+  import { Router, Link, Route } from "svelte-routing";
+import Home from "./lib/Home.svelte";
+import About from "./pages/About.svelte"
+export let url = "";
 </script>
 
-<main>
+<main id="app">
+
   <Navbar />
-  <Main />
-  <Knowledge />
-  <Projects />
-  <Blog />
+  <Router url="{url}">
+    <nav>
+      <Link to="/"></Link>
+
+    </nav>
+    <div>
+      <Route path="/"><Home /></Route>
+
+    </div>
+  </Router>
+  
+
+  
   <button>Hire Me!</button>
   <h1>Keep It simple!</h1>
+
 </main>
 <style>
   button{
@@ -23,4 +34,5 @@
     bottom: 20px;
     right: 20px;
   }
+  
 </style>
